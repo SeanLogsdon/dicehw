@@ -9,6 +9,7 @@
         android:id="@+id/image_view_dice"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_marginBottom="32dp"
         android:src="@drawable/dice1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,7 +27,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_dice" />
+        app:layout_constraintTop_toBottomOf="@+id/image_view_dice"
+        app:layout_constraintVertical_bias="0.923" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
