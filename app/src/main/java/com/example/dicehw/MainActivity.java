@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
-
 public class MainActivity extends AppCompatActivity {
     private ImageView imageViewDice;
     private Random rng = new Random();
