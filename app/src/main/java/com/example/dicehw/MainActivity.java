@@ -15,8 +15,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     private ImageView imageViewDice;
     private Random rng = new Random();
-    private SoundPool soundPool;
-    private int sound1, sound2, sound3;
+    private MediaPlayer mpdevery;
+    private MediaPlayer mpd1;
+    private MediaPlayer mpd20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,12 @@ public class MainActivity extends AppCompatActivity {
     }
     private void rollDice() {
         int randomNumber = rng.nextInt(20) + 1;
+        mpdevery = MediaPlayer.create(MainActivity.this, R.raw.devery);
+        mpdevery.start();
         switch (randomNumber) {
             case 1:
+                mpd1 = MediaPlayer.create(MainActivity.this, R.raw.d1);
+                mpd1.start();
                 imageViewDice.setImageResource(R.drawable.dice1);
                 break;
             case 2:
@@ -92,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 imageViewDice.setImageResource(R.drawable.dice19);
                 break;
             case 20:
+                mpd20 = MediaPlayer.create(MainActivity.this, R.raw.d20);
+                mpd20.start();
                 imageViewDice.setImageResource(R.drawable.dice20);
                 break;
         }
