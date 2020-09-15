@@ -8,12 +8,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
     private ImageView imageViewDice;
+    private TextView textviewDice;
     private Random rng = new Random();
     private MediaPlayer mpdevery;
     private MediaPlayer mpd1;
@@ -23,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textviewDice = findViewById(R.id.text_view_dice);
 
         imageViewDice = findViewById(R.id.image_view_dice);
         imageViewDice.setOnClickListener(new View.OnClickListener() {
@@ -36,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
         int randomNumber = rng.nextInt(20) + 1;
         mpdevery = MediaPlayer.create(MainActivity.this, R.raw.devery);
         mpdevery.start();
+        textviewDice.setText(" ");
         switch (randomNumber) {
             case 1:
                 mpd1 = MediaPlayer.create(MainActivity.this, R.raw.d1);
                 mpd1.start();
+                textviewDice.setText("Critical Miss");
                 imageViewDice.setImageResource(R.drawable.dice1);
                 break;
             case 2:
@@ -99,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             case 20:
                 mpd20 = MediaPlayer.create(MainActivity.this, R.raw.d20);
                 mpd20.start();
+                textviewDice.setText("Critical Hit!");
                 imageViewDice.setImageResource(R.drawable.dice20);
                 break;
         }
